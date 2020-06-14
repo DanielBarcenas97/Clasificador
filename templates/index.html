@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>CalificadorPeliculas</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet"  href="{{ url_for('static', filename='css/main.css') }}" />
+		<noscript><link rel="stylesheet"  href="{{ url_for('static', filename='css/noscript.css') }}"/></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div  id="wrapper">
+				<!-- Header -->
+				
+					<header id="header" class="alt">
+						<div class="box alt">
+							<div class="row gtr-uniform">
+								<div class="col-3"><span class="image fit"><img src="{{url_for('static', filename='imgs/LogoUnam.png')}}" alt="" /></span></div>
+								<div class="col-6">
+									<span class="logo"><img src="{{url_for('static', filename='imgs/cine.png')}}" alt="" width="100" height="100" /></span>
+						            <h1>Calificador de películas basado en reviews</h1>
+									<p><b>Colaboradores:</b><br />
+									Barcenas Martinez Edgar Daniel <br />
+									Martinez Troncoso Julio Cesar <br />
+									Silva Sandoval Cecilia</p></div>
+								<div class="col-3"><span class="image fit"><img src="{{url_for('static', filename='imgs/escudo_fi_color.png')}}" alt="" /></span></div>
+							</div>
+						</div>
+						
+					</header>
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">Introducción</a></li>
+							<li><a href="#first">Agrega</a></li>
+							<li><a href="#second">Selecciona y visualiza</a></li>
+
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<header class="major">
+									<h2>PROYECTO FINAL</h2>
+									<p>Materia:Analisis y procesamiento inteligente de textos<br />
+									Clave:2932<br/>
+									Grupo:01</p>
+								</header>
+
+						
+								<p class="content">
+									Somos un equipo amante del arte en la expresión cinematográfica. 
+Actualmente la gran cantidad de películas que se han producido y el tiempo reducido que tenemos para poder clasificarlas nos presenta un problema interesante a resolver, ¿Habrá alguna forma de calificar una película antes de verla? sin tener que recurrir al criterio público a partir de su reseña. Nos dimos a la tarea de entrenar un algoritmo para que esté a su vez las discrimine, con el objetivo de saber si una película contiene un contenido positivo o negativo. 
+Con ayuda de erramientas que nos proporciona el lenguaje de programación (Python), basandonos en el procesamiento del lenguaje natural que se ocupa de la comprensión y el procesamiento del lenguaje humano.
+									</p>
+						
+							</section>
+
+						<!-- First Section -->
+						
+							<section id="first" class="main special">
+								<div class="spotlight">
+									<div class="content">
+										<form method="post" action="{{url_for('procesar')}}" enctype="multipart/form-data">
+											<header class="major">
+												<center><h2>Paso 1: Agrega una descripción de la pelicula o adjunta un archivo de extensión .txt</h2></center>
+											</header>
+											<div class="box alt">
+												<div class="row gtr-uniform">
+													<div class="col-6">			
+															<div class="col-12">
+																<textarea name="descripcion" id="demo-message" placeholder="Ingresa la reseña de la pelicula" rows="6"></textarea>
+															</div>
+															<br>
+															<ul class="actions">									
+																<li><input type="reset" value="Reset" /></li>
+															</ul>	
+													</div>
+													<div class="col-1">ó
+														
+													</div>
+													<div class="col-5">
+													
+															<div class="col-12">
+																<input type="file" name="adjunto" accept=".txt" /><br><br>
+															</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+												
+							<!-- Second Section -->
+								<section id="second" class="main special">
+									<header class="major">
+										<h2>Paso 2: Selecciona el método y predice</h2>
+										<ul class="actions fit small">
+											<li><input type="submit" name="metodo" class="button primary fit small" value="SVM+Ngrams"onclick="myFunction()"></input></li>
+											<li><input type="submit" name="metodo" class="button primary fit small" value="SVM"onclick="myFunction()"></input></li>
+											<li><input type="submit" name="metodo" class="button primary fit small" value="Ngrams"onclick="myFunction()"></input></li>
+										</ul>
+										<ul class="actions fit small">
+											<li><input type="submit" name="metodo" class="button primary fit small" value="TFIDF"onclick="myFunction()"></input></li>
+											<li><input type="submit" name="metodo" class="button primary fit small" value="WordCounts" onclick="myFunction()" ></input></li>
+											
+											<li><input type="submit" name="metodo" class="button primary fit small" value="Naive_Bayes"  onclick="myFunction()"></input></li>
+
+										</ul>					
+									</header>
+								</section>
+						</form>
+					</div>
+				<!-- Footer -->
+					<footer id="footer">		
+						<p class="copyright">Facultad de Ingenieria ❤ UNAM</p>
+					</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script>function myFunction() {alert("Entrenado modelo!");}</script>
+			<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/jquery.scrollex.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/jquery.scrolly.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/browser.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/breakpoints.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/util.js')}}"></script>
+			<script src="{{url_for('static', filename='js/main.js')}}"></script>
+	</body>
+</html>
